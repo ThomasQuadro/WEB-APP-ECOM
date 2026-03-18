@@ -101,27 +101,37 @@ const PAYMENT_METHODS = [
 ]
 
 // ─── Step 1 — Adresse ────────────────────────────────────────────────────────
+function AddressField({ label, name, type = 'text', placeholder = '', half = false, form, errors, onChange }) {
+  return (
+    <div className={half ? 'col-span-1' : 'col-span-2'}>
+      <label className="block text-xs font-semibold text-g-muted mb-1.5">{label}</label>
+      <input
+        type={type} value={form[name]} placeholder={placeholder}
+        onChange={e => onChange(name, e.target.value)}
+        className={`input w-full text-sm ${errors[name] ? 'border-red-500 focus:border-red-500' : ''}`}
+      />
+      {errors[name] && <p className="text-xs text-red-400 mt-1">{errors[name]}</p>}
+    </div>
+  )
+}
+
 function StepAddress({ data, onChange, onNext }) {
   const { user } = useAuth()
 
-  function init() {
-    return {
-      firstName: data.firstName || user?.firstName || '',
-      lastName:  data.lastName  || user?.lastName  || '',
-      email:     data.email     || user?.email      || '',
-      phone:     data.phone     || '',
-      address:   data.address   || '',
-      complement:data.complement|| '',
-      zip:       data.zip       || '',
-      city:      data.city      || '',
-      country:   data.country   || 'France',
-    }
-  }
-
-  const [form, setForm] = useState(init)
+  const [form, setForm] = useState(() => ({
+    firstName:  data.firstName  || user?.firstName || '',
+    lastName:   data.lastName   || user?.lastName  || '',
+    email:      data.email      || user?.email     || '',
+    phone:      data.phone      || '',
+    address:    data.address    || '',
+    complement: data.complement || '',
+    zip:        data.zip        || '',
+    city:       data.city       || '',
+    country:    data.country    || 'France',
+  }))
   const [errors, setErrors] = useState({})
 
-  function set(k, v) { setForm(f => ({ ...f, [k]: v })); setErrors(e => ({ ...e, [k]: '' })) }
+  function setField(k, v) { setForm(f => ({ ...f, [k]: v })); setErrors(e => ({ ...e, [k]: '' })) }
 
   function validate() {
     const e = {}
@@ -142,19 +152,7 @@ function StepAddress({ data, onChange, onNext }) {
     onNext()
   }
 
-  function Field({ label, k, type = 'text', placeholder = '', half = false }) {
-    return (
-      <div className={half ? 'col-span-1' : 'col-span-2'}>
-        <label className="block text-xs font-semibold text-g-muted mb-1.5">{label}</label>
-        <input
-          type={type} value={form[k]} placeholder={placeholder}
-          onChange={e => set(k, e.target.value)}
-          className={`input w-full text-sm ${errors[k] ? 'border-red-500 focus:border-red-500' : ''}`}
-        />
-        {errors[k] && <p className="text-xs text-red-400 mt-1">{errors[k]}</p>}
-      </div>
-    )
-  }
+  const fieldProps = { form, errors, onChange: setField }
 
   return (
     <div className="space-y-6">
@@ -164,14 +162,14 @@ function StepAddress({ data, onChange, onNext }) {
       </div>
 
       <div className="grid grid-cols-2 gap-4">
-        <Field label="Prénom *" k="firstName" half placeholder="Jean" />
-        <Field label="Nom *"    k="lastName"  half placeholder="Dupont" />
-        <Field label="Email *"  k="email"  type="email" placeholder="jean@exemple.fr" />
-        <Field label="Téléphone *" k="phone" type="tel" placeholder="+33 6 12 34 56 78" half />
-        <Field label="Adresse *" k="address" placeholder="12 rue de la Paix" />
-        <Field label="Complément" k="complement" placeholder="Appartement, bâtiment…" />
-        <Field label="Code postal *" k="zip" half placeholder="75011" />
-        <Field label="Ville *"       k="city" half placeholder="Paris" />
+        <AddressField label="Prénom *"      name="firstName"  half placeholder="Jean"                   {...fieldProps} />
+        <AddressField label="Nom *"         name="lastName"   half placeholder="Dupont"                 {...fieldProps} />
+        <AddressField label="Email *"       name="email"      type="email" placeholder="jean@exemple.fr" {...fieldProps} />
+        <AddressField label="Téléphone *"   name="phone"      type="tel" half placeholder="+33 6 12 34 56 78" {...fieldProps} />
+        <AddressField label="Adresse *"     name="address"    placeholder="12 rue de la Paix"           {...fieldProps} />
+        <AddressField label="Complément"    name="complement" placeholder="Appartement, bâtiment…"      {...fieldProps} />
+        <AddressField label="Code postal *" name="zip"        half placeholder="75011"                  {...fieldProps} />
+        <AddressField label="Ville *"       name="city"       half placeholder="Paris"                  {...fieldProps} />
         <div className="col-span-2">
           <label className="block text-xs font-semibold text-g-muted mb-1.5">Pays *</label>
           <select value={form.country} onChange={e => set('country', e.target.value)}
