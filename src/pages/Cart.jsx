@@ -1,12 +1,10 @@
-import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import {
   ShoppingCart, Trash2, Plus, Minus, ArrowRight,
-  PackageOpen, ArrowLeft, Tag, ShieldCheck, Truck, Check
+  PackageOpen, ArrowLeft, Tag, ShieldCheck, Truck
 } from 'lucide-react'
 import { useCart } from '../context/CartContext'
 import { useAuth } from '../context/AuthContext'
-import { api } from '../services/api'
 
 function EmptyCart() {
   return (
@@ -130,45 +128,16 @@ function OrderSummary({ totalPrice, totalItems, onCheckout, checkoutLoading }) {
 }
 
 export default function Cart() {
-  const { items, totalItems, totalPrice, removeItem, updateQty, clearCart } = useCart()
+  const { items, totalItems, totalPrice, removeItem, updateQty } = useCart()
   const { user } = useAuth()
   const navigate  = useNavigate()
-  const [checkoutLoading, setCheckoutLoading] = useState(false)
-  const [orderSuccess,    setOrderSuccess]    = useState(false)
 
-  async function handleCheckout() {
+  function handleCheckout() {
     if (!user) {
-      navigate('/login', { state: { from: '/panier' } })
+      navigate('/login', { state: { from: '/checkout' } })
       return
     }
-    setCheckoutLoading(true)
-    try {
-      await api.post('/orders', { items })
-      clearCart()
-      setOrderSuccess(true)
-    } catch (e) {
-      alert(e.message)
-    } finally {
-      setCheckoutLoading(false)
-    }
-  }
-
-  if (orderSuccess) {
-    return (
-      <div className="pt-16 min-h-screen flex items-center justify-center">
-        <div className="text-center space-y-5 max-w-md mx-auto px-4">
-          <div className="w-20 h-20 rounded-full bg-g-green/20 border-2 border-g-green flex items-center justify-center mx-auto">
-            <Check size={36} className="text-g-green" />
-          </div>
-          <h1 className="text-3xl font-extrabold text-g-text">Commande confirmée !</h1>
-          <p className="text-g-muted">Merci pour votre achat. Vous pouvez suivre votre commande dans votre espace client.</p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link to="/dashboard" className="btn-primary">Voir mes commandes</Link>
-            <Link to="/boutique"  className="btn-secondary">Continuer mes achats</Link>
-          </div>
-        </div>
-      </div>
-    )
+    navigate('/checkout')
   }
 
   return (

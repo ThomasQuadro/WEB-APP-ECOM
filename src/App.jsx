@@ -12,6 +12,7 @@ import Cart           from './pages/Cart'
 import Login          from './pages/Login'
 import Register       from './pages/Register'
 import Dashboard      from './pages/Dashboard'
+import Checkout       from './pages/Checkout'
 import FAQ            from './pages/FAQ'
 import Guide          from './pages/Guide'
 import Garantie       from './pages/Garantie'
@@ -20,7 +21,7 @@ import CGV            from './pages/CGV'
 import Confidentialite from './pages/Confidentialite'
 import Cookies        from './pages/Cookies'
 
-const NO_FOOTER = ['/login', '/register']
+const NO_FOOTER = ['/login', '/register', '/checkout']
 
 export default function App() {
   const { pathname } = useLocation()
@@ -39,6 +40,7 @@ export default function App() {
           <Route path="/panier"           element={<Cart />} />
           <Route path="/login"            element={<Login />} />
           <Route path="/register"         element={<Register />} />
+          <Route path="/checkout"         element={<ProtectedRoute><Checkout /></ProtectedRoute>} />
           <Route path="/dashboard"        element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           <Route path="/faq"              element={<FAQ />} />
           <Route path="/guide"            element={<Guide />} />

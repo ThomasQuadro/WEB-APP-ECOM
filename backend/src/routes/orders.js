@@ -5,7 +5,7 @@ import { requireAuth } from '../middleware/auth.js'
 const router = Router()
 router.use(requireAuth)
 
-// GET /api/orders — commandes de l'utilisateur connecté
+// GET /api/orders
 router.get('/', async (req, res) => {
   try {
     const orders = await prisma.order.findMany({
@@ -33,19 +33,35 @@ router.get('/:id', async (req, res) => {
   }
 })
 
-// POST /api/orders — créer une commande
+// POST /api/orders
 router.post('/', async (req, res) => {
   try {
-    const { items } = req.body
+    const {
+      items,
+      shippingFirstName, shippingLastName, shippingEmail, shippingPhone,
+      shippingAddress, shippingComplement, shippingZip, shippingCity, shippingCountry,
+      shippingMethod, shippingCost,
+      paymentMethod,
+    } = req.body
+
     if (!items || items.length === 0) {
       return res.status(400).json({ error: 'Le panier est vide' })
     }
-    const total = items.reduce((sum, i) => sum + i.price * i.quantity, 0)
+
+    const subtotal = items.reduce((sum, i) => sum + i.price * i.quantity, 0)
+    const total = subtotal + (shippingCost ?? 0)
+
     const order = await prisma.order.create({
       data: {
         userId: req.userId,
         total,
         status: 'CONFIRMED',
+        shippingFirstName, shippingLastName, shippingEmail, shippingPhone,
+        shippingAddress, shippingComplement, shippingZip, shippingCity,
+        shippingCountry: shippingCountry ?? 'France',
+        shippingMethod,
+        shippingCost,
+        paymentMethod,
         items: {
           create: items.map(i => ({
             productName: i.name,

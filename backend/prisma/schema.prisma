@@ -48,14 +48,28 @@ model Product {
 }
 
 model Order {
-  id        Int         @id @default(autoincrement())
-  userId    Int
-  user      User        @relation(fields: [userId], references: [id])
-  status    OrderStatus @default(PENDING)
-  total     Float
-  items     OrderItem[]
-  createdAt DateTime    @default(now())
-  updatedAt DateTime    @updatedAt
+  id               Int         @id @default(autoincrement())
+  userId           Int
+  user             User        @relation(fields: [userId], references: [id])
+  status           OrderStatus @default(PENDING)
+  total            Float
+  items            OrderItem[]
+  // Adresse de livraison
+  shippingFirstName String?
+  shippingLastName  String?
+  shippingEmail     String?
+  shippingPhone     String?
+  shippingAddress   String?
+  shippingComplement String?
+  shippingZip       String?
+  shippingCity      String?
+  shippingCountry   String?
+  // Expédition & paiement
+  shippingMethod    String?
+  shippingCost      Float?
+  paymentMethod     String?
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
 }
 
 model OrderItem {
