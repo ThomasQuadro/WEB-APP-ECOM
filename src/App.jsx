@@ -1,6 +1,7 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import CartSidebar from './components/CartSidebar'
+import Footer from './components/Footer'
 import ProtectedRoute from './components/ProtectedRoute'
 import Home from './pages/Home'
 import Catalog from './pages/Catalog'
@@ -11,12 +12,18 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
 
+// Pas de footer sur les pages login/register
+const NO_FOOTER = ['/login', '/register']
+
 export default function App() {
+  const { pathname } = useLocation()
+  const showFooter = !NO_FOOTER.includes(pathname)
+
   return (
-    <div className="min-h-screen bg-g-bg">
+    <div className="min-h-screen bg-g-bg flex flex-col">
       <Navbar />
       <CartSidebar />
-      <main>
+      <main className="flex-1">
         <Routes>
           <Route path="/"              element={<Home />} />
           <Route path="/boutique"      element={<Catalog />} />
@@ -30,6 +37,7 @@ export default function App() {
           } />
         </Routes>
       </main>
+      {showFooter && <Footer />}
     </div>
   )
 }
