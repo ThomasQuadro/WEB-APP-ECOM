@@ -66,7 +66,7 @@ function CartRow({ item, onRemove, onQty }) {
   )
 }
 
-function OrderSummary({ totalPrice, totalItems, onCheckout, checkoutLoading }) {
+function OrderSummary({ totalPrice, totalItems, onCheckout }) {
   const tva      = totalPrice * 0.2
   const shipping = totalPrice > 1000 ? 0 : 29
   const total    = totalPrice + tva + shipping
@@ -107,13 +107,12 @@ function OrderSummary({ totalPrice, totalItems, onCheckout, checkoutLoading }) {
 
       <button
         onClick={onCheckout}
-        disabled={checkoutLoading}
         className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl
                    bg-blue-purple text-white font-bold text-base
                    hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] hover:scale-[1.02]
-                   transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
+                   transition-all duration-200"
       >
-        {checkoutLoading ? 'Traitement...' : <><ArrowRight size={18} /> Passer à la caisse</>}
+        <ArrowRight size={18} /> Passer à la caisse
       </button>
 
       <div className="space-y-2 pt-2">
@@ -186,7 +185,7 @@ export default function Cart() {
             <div className="xl:w-80 shrink-0">
               <OrderSummary
                 totalPrice={totalPrice} totalItems={totalItems}
-                onCheckout={handleCheckout} checkoutLoading={checkoutLoading}
+                onCheckout={handleCheckout}
               />
             </div>
           </div>
