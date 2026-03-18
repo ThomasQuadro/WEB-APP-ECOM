@@ -1,4 +1,4 @@
-# NEXUS BUILD — E-commerce PC Gaming
+# NEXT BUILD — E-commerce PC Gaming
 
 Site e-commerce de PC gaming sur-mesure. Catalogue, configurateur, panier, authentification, dashboard utilisateur et chatbot intégré.
 
@@ -40,7 +40,7 @@ WEB-APP-ECOM/
 │   │   ├── Navbar.jsx          # Barre de navigation (auth + panier)
 │   │   ├── CartSidebar.jsx     # Drawer panier
 │   │   ├── Footer.jsx          # Footer 5 colonnes
-│   │   ├── ChatWidget.jsx      # Chatbot NexusBot (client-side)
+│   │   ├── ChatWidget.jsx      # Chatbot NextBot (client-side)
 │   │   └── ProtectedRoute.jsx  # Garde de route JWT
 │   ├── context/
 │   │   ├── AuthContext.jsx     # État d'authentification global
@@ -203,7 +203,7 @@ PUT /api/users/me         { firstName, lastName, email }
 - **Panier** — sidebar slide-in, gestion quantités, persistance session
 - **Authentification** — inscription/connexion JWT, token stocké en localStorage
 - **Dashboard** — statistiques commandes, historique accordéon, modification du profil
-- **NexusBot** — chatbot client-side par mots-clés, aucune API externe requise
+- **NextBot** — chatbot client-side par mots-clés, aucune API externe requise
 - **Pages légales** — CGV, mentions légales, RGPD, cookies interactifs
 
 ---
@@ -214,7 +214,7 @@ Les variables sont définies dans `docker-compose.yml`. Pour la production, cré
 
 ```env
 # Backend
-DATABASE_URL=postgresql://nexus:nexuspass@db:5432/nexusbuild
+DATABASE_URL=postgresql://next:nextpass@db:5432/nextbuild
 JWT_SECRET=changez-moi-en-production
 FRONTEND_URL=https://votre-domaine.fr
 PORT=3001

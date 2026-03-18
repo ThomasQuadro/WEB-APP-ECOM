@@ -1,7 +1,7 @@
 const BASE = (import.meta.env.VITE_API_URL ?? 'http://localhost:3001') + '/api'
 
 function token() {
-  return localStorage.getItem('nexus_token')
+  return localStorage.getItem('next_token')
 }
 
 async function request(method, path, body) {

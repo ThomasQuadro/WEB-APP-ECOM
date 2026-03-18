@@ -7,43 +7,43 @@ import { MessageCircle, X, Send, Bot, User, Zap } from 'lucide-react'
 const RULES = [
   {
     keys: ['bonjour', 'salut', 'hello', 'bonsoir', 'coucou', 'hey'],
-    answer: 'Bonjour ! 👋 Je suis NexusBot, votre assistant NEXUS BUILD. Je peux vous aider à choisir un PC, répondre à vos questions sur la garantie, la livraison ou les composants. Par quoi puis-je commencer ?',
+    answer: 'Bonjour ! 👋 Je suis NextBot, votre assistant NEXT BUILD. Je peux vous aider à choisir un PC, répondre à vos questions sur la garantie, la livraison ou les composants. Par quoi puis-je commencer ?',
   },
   {
     keys: ['starter', '649', 'entrée de gamme', 'pas cher', 'budget', 'petit budget'],
-    answer: '💻 **NEXUS STARTER — 649 €**\nRyzen 5 5600 + RTX 3060 12 GB + 16 Go RAM + SSD 500 Go.\nParfait pour le gaming 1080p (60–144 fps selon les jeux). Idéal si votre budget est serré ou si vous débutez en gaming PC.',
+    answer: '💻 **NEXT STARTER — 649 €**\nRyzen 5 5600 + RTX 3060 12 GB + 16 Go RAM + SSD 500 Go.\nParfait pour le gaming 1080p (60–144 fps selon les jeux). Idéal si votre budget est serré ou si vous débutez en gaming PC.',
   },
   {
     keys: ['gamer', '999', '1000', '1080p', 'mille euro'],
-    answer: '🎮 **NEXUS GAMER — 999 €**\nRyzen 5 7600X + RTX 4070 12 GB + 32 Go RAM + SSD 1 To.\nExcellent rapport qualité/prix pour le 1080p ultra et le 1440p. Le choix le plus populaire de notre gamme.',
+    answer: '🎮 **NEXT GAMER — 999 €**\nRyzen 5 7600X + RTX 4070 12 GB + 32 Go RAM + SSD 1 To.\nExcellent rapport qualité/prix pour le 1080p ultra et le 1440p. Le choix le plus populaire de notre gamme.',
   },
   {
     keys: ['pro', '1499', '1440p', 'qhd'],
-    answer: '🚀 **NEXUS PRO — 1 499 €**\nRyzen 7 7700X + RTX 4070 Ti 12 GB + 32 Go RAM + SSD 1 To.\nConçu pour le gaming 1440p ultra et le 4K correct. Un excellent équilibre puissance/prix.',
+    answer: '🚀 **NEXT PRO — 1 499 €**\nRyzen 7 7700X + RTX 4070 Ti 12 GB + 32 Go RAM + SSD 1 To.\nConçu pour le gaming 1440p ultra et le 4K correct. Un excellent équilibre puissance/prix.',
   },
   {
     keys: ['ultra', '2299', '4k', 'haut de gamme', 'meilleur', 'top'],
-    answer: '👑 **NEXUS ULTRA — 2 299 €**\nRyzen 9 7900X + RTX 4090 24 GB + 64 Go RAM + SSD 2 To.\nLe summum de notre gamme : 4K ultra, VR, aucun compromis. Pour les joueurs qui ne veulent pas attendre.',
+    answer: '👑 **NEXT ULTRA — 2 299 €**\nRyzen 9 7900X + RTX 4090 24 GB + 64 Go RAM + SSD 2 To.\nLe summum de notre gamme : 4K ultra, VR, aucun compromis. Pour les joueurs qui ne veulent pas attendre.',
   },
   {
     keys: ['stream', 'streaming', '1199', 'twitch', 'youtube', 'obs'],
-    answer: '🎥 **NEXUS STREAM — 1 199 €**\nRyzen 9 7900X (12 cœurs) + RTX 4070 12 GB + 32 Go RAM + SSD 1 To.\nOptimisé pour jouer ET streamer simultanément grâce aux nombreux cœurs du Ryzen 9.',
+    answer: '🎥 **NEXT STREAM — 1 199 €**\nRyzen 9 7900X (12 cœurs) + RTX 4070 12 GB + 32 Go RAM + SSD 1 To.\nOptimisé pour jouer ET streamer simultanément grâce aux nombreux cœurs du Ryzen 9.',
   },
   {
     keys: ['creator', 'créateur', '1799', 'montage', 'vidéo', 'photo', 'blender', '3d'],
-    answer: '🎨 **NEXUS CREATOR — 1 799 €**\nRyzen 9 7950X (16 cœurs) + RTX 4080 16 GB + 64 Go RAM + SSD 2 To.\nTaillé pour la création de contenu, le montage vidéo 4K, le rendu 3D et le gaming haute performance.',
+    answer: '🎨 **NEXT CREATOR — 1 799 €**\nRyzen 9 7950X (16 cœurs) + RTX 4080 16 GB + 64 Go RAM + SSD 2 To.\nTaillé pour la création de contenu, le montage vidéo 4K, le rendu 3D et le gaming haute performance.',
   },
   {
     keys: ['office', 'bureautique', '449', 'travail', 'bureau', 'excel', 'word'],
-    answer: '💼 **NEXUS OFFICE — 449 €**\nRyzen 5 5600G (APU intégré) + 16 Go RAM + SSD 500 Go.\nParfait pour la bureautique, la navigation web et les tâches professionnelles. Compact et silencieux.',
+    answer: '💼 **NEXT OFFICE — 449 €**\nRyzen 5 5600G (APU intégré) + 16 Go RAM + SSD 500 Go.\nParfait pour la bureautique, la navigation web et les tâches professionnelles. Compact et silencieux.',
   },
   {
     keys: ['mini', '799', 'compact', 'petit', 'format'],
-    answer: '📦 **NEXUS MINI — 799 €**\nRyzen 5 7600 + RTX 4060 8 GB + 16 Go RAM + SSD 500 Go.\nFormat mini-ITX ultra compact. Même performances qu\'un tour classique dans un boîtier minuscule.',
+    answer: '📦 **NEXT MINI — 799 €**\nRyzen 5 7600 + RTX 4060 8 GB + 16 Go RAM + SSD 500 Go.\nFormat mini-ITX ultra compact. Même performances qu\'un tour classique dans un boîtier minuscule.',
   },
   {
     keys: ['garantie', 'sav', 'panne', 'réparation', 'retour', 'remboursement'],
-    answer: '🛡️ **Garantie NEXUS BUILD**\n• Garantie commerciale **3 ans** pièces & main d\'œuvre\n• Garantie légale de conformité 2 ans incluse\n• En cas de panne : contactez support@nexusbuild.fr\n• Frais de retour SAV **pris en charge** par NEXUS BUILD\n• Droit de rétractation 14 jours après réception',
+    answer: '🛡️ **Garantie NEXT BUILD**\n• Garantie commerciale **3 ans** pièces & main d\'œuvre\n• Garantie légale de conformité 2 ans incluse\n• En cas de panne : contactez support@nextbuild.fr\n• Frais de retour SAV **pris en charge** par NEXT BUILD\n• Droit de rétractation 14 jours après réception',
   },
   {
     keys: ['livraison', 'délai', 'expédition', 'transport', 'envoi', 'quand', 'recevoir'],
@@ -83,11 +83,11 @@ const RULES = [
   },
   {
     keys: ['contact', 'email', 'telephone', 'appel', 'joindre', 'parler', 'humain'],
-    answer: '📞 **Contactez-nous**\n• Email : support@nexusbuild.fr\n• Téléphone : +33 1 23 45 67 89 (Lun–Sam 9h–19h)\n• Adresse : 12 rue de la Tech, 75011 Paris\n\nNotre équipe de techniciens passionnés vous répond sous 24h ouvrées.',
+    answer: '📞 **Contactez-nous**\n• Email : support@nextbuild.fr\n• Téléphone : +33 1 23 45 67 89 (Lun–Sam 9h–19h)\n• Adresse : 12 rue de la Tech, 75011 Paris\n\nNotre équipe de techniciens passionnés vous répond sous 24h ouvrées.',
   },
   {
     keys: ['prix', 'combien', 'coute', 'coût', 'tarif', 'gamme'],
-    answer: '💰 **Nos tarifs**\n• NEXUS OFFICE → 449 €\n• NEXUS STARTER → 649 €\n• NEXUS MINI → 799 €\n• NEXUS GAMER → 999 €\n• NEXUS STREAM → 1 199 €\n• NEXUS PRO → 1 499 €\n• NEXUS CREATOR → 1 799 €\n• NEXUS ULTRA → 2 299 €\n\nLivraison gratuite dès 1 000 €. Garantie 3 ans incluse sur tous les modèles.',
+    answer: '💰 **Nos tarifs**\n• NEXT OFFICE → 449 €\n• NEXT STARTER → 649 €\n• NEXT MINI → 799 €\n• NEXT GAMER → 999 €\n• NEXT STREAM → 1 199 €\n• NEXT PRO → 1 499 €\n• NEXT CREATOR → 1 799 €\n• NEXT ULTRA → 2 299 €\n\nLivraison gratuite dès 1 000 €. Garantie 3 ans incluse sur tous les modèles.',
   },
   {
     keys: ['conseil', 'choisir', 'quel', 'recommande', 'lequel', 'aide'],
@@ -95,7 +95,7 @@ const RULES = [
   },
   {
     keys: ['merci', 'parfait', 'super', 'nickel', 'cool', 'top', 'genial', 'génial'],
-    answer: 'Avec plaisir ! 😊 N\'hésitez pas si vous avez d\'autres questions. L\'équipe NEXUS BUILD est là pour vous aider à trouver la machine de vos rêves !',
+    answer: 'Avec plaisir ! 😊 N\'hésitez pas si vous avez d\'autres questions. L\'équipe NEXT BUILD est là pour vous aider à trouver la machine de vos rêves !',
   },
   {
     keys: ['au revoir', 'bye', 'bonne journée', 'bonne soirée', 'à bientôt'],
@@ -156,7 +156,7 @@ function MessageBubble({ msg }) {
 
 const WELCOME = {
   role: 'assistant',
-  content: 'Bonjour ! 👋 Je suis NexusBot, votre assistant NEXUS BUILD.\nJe peux vous aider à choisir un PC, répondre à vos questions sur la garantie, la livraison, les composants ou les prix.\nComment puis-je vous aider ?',
+  content: 'Bonjour ! 👋 Je suis NextBot, votre assistant NEXT BUILD.\nJe peux vous aider à choisir un PC, répondre à vos questions sur la garantie, la livraison, les composants ou les prix.\nComment puis-je vous aider ?',
 }
 
 export default function ChatWidget() {
@@ -220,8 +220,8 @@ export default function ChatWidget() {
               <Zap size={16} className="text-white" fill="white" />
             </div>
             <div>
-              <p className="font-bold text-white text-sm">NexusBot</p>
-              <p className="text-white/70 text-xs">Assistant NEXUS BUILD</p>
+              <p className="font-bold text-white text-sm">NextBot</p>
+              <p className="text-white/70 text-xs">Assistant NEXT BUILD</p>
             </div>
             <div className="ml-auto flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />

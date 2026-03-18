@@ -1,5 +1,5 @@
 {
-  "name": "nexus-build-backend",
+  "name": "next-build-backend",
   "version": "1.0.0",
   "type": "module",
   "scripts": {

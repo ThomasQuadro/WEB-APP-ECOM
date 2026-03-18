@@ -43,7 +43,7 @@ export default function Login() {
               <Zap size={22} className="text-white" fill="white" />
             </div>
             <span className="font-extrabold text-xl tracking-tight">
-              NEXUS<span className="gradient-text"> BUILD</span>
+              NEXT<span className="gradient-text"> BUILD</span>
             </span>
           </div>
           <h1 className="text-2xl font-bold text-g-text">Connexion</h1>

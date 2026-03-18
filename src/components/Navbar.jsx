@@ -47,7 +47,7 @@ export default function Navbar() {
             <Zap size={18} className="text-white" fill="white" />
           </div>
           <span className="font-extrabold text-lg tracking-tight text-g-text">
-            NEXUS<span className="gradient-text"> BUILD</span>
+            NEXT<span className="gradient-text"> BUILD</span>
           </span>
         </Link>
 

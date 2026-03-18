@@ -153,7 +153,7 @@ export default function Configurator() {
 
     addItem({
       id: `custom-${Date.now()}`,
-      name: 'PC Sur-Mesure NEXUS BUILD',
+      name: 'PC Sur-Mesure NEXT BUILD',
       price: totalPrice,
       gradient: 'from-violet-900 via-blue-900 to-indigo-950',
       variant: variantParts.join(' | '),

@@ -48,7 +48,7 @@ export default function Footer() {
                 <Zap size={20} className="text-white" fill="white" />
               </div>
               <span className="font-extrabold text-xl tracking-tight text-g-text">
-                NEXUS<span className="gradient-text"> BUILD</span>
+                NEXT<span className="gradient-text"> BUILD</span>
               </span>
             </Link>
 
@@ -61,7 +61,7 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm">
               <li className="flex items-center gap-2.5 text-g-muted hover:text-g-text transition-colors">
                 <Mail size={14} className="text-g-blue shrink-0" />
-                <span>support@nexusbuild.fr</span>
+                <span>support@nextbuild.fr</span>
               </li>
               <li className="flex items-center gap-2.5 text-g-muted hover:text-g-text transition-colors">
                 <Phone size={14} className="text-g-blue shrink-0" />
@@ -153,7 +153,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5
                         flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-g-muted text-center sm:text-left">
-            © {new Date().getFullYear()} NEXUS BUILD — Tous droits réservés.
+            © {new Date().getFullYear()} NEXT BUILD — Tous droits réservés.
             Assemblé avec passion 🇫🇷
           </p>
           <div className="flex items-center gap-1.5">

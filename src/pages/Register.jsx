@@ -51,11 +51,11 @@ export default function Register() {
               <Zap size={22} className="text-white" fill="white" />
             </div>
             <span className="font-extrabold text-xl tracking-tight">
-              NEXUS<span className="gradient-text"> BUILD</span>
+              NEXT<span className="gradient-text"> BUILD</span>
             </span>
           </div>
           <h1 className="text-2xl font-bold text-g-text">Créer un compte</h1>
-          <p className="text-g-muted text-sm mt-1">Rejoignez la communauté NEXUS BUILD</p>
+          <p className="text-g-muted text-sm mt-1">Rejoignez la communauté NEXT BUILD</p>
         </div>
 
         <div className="card p-8 space-y-5">

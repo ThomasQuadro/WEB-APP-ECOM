@@ -8,11 +8,11 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const t = localStorage.getItem('nexus_token')
+    const t = localStorage.getItem('next_token')
     if (t) {
       api.get('/auth/me')
         .then(d => setUser(d.user))
-        .catch(() => localStorage.removeItem('nexus_token'))
+        .catch(() => localStorage.removeItem('next_token'))
         .finally(() => setLoading(false))
     } else {
       setLoading(false)
@@ -21,20 +21,20 @@ export function AuthProvider({ children }) {
 
   async function login(email, password) {
     const data = await api.post('/auth/login', { email, password })
-    localStorage.setItem('nexus_token', data.token)
+    localStorage.setItem('next_token', data.token)
     setUser(data.user)
     return data
   }
 
   async function register(firstName, lastName, email, password) {
     const data = await api.post('/auth/register', { firstName, lastName, email, password })
-    localStorage.setItem('nexus_token', data.token)
+    localStorage.setItem('next_token', data.token)
     setUser(data.user)
     return data
   }
 
   function logout() {
-    localStorage.removeItem('nexus_token')
+    localStorage.removeItem('next_token')
     setUser(null)
   }
 

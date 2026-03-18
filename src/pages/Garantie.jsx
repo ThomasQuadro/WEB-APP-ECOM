@@ -38,7 +38,7 @@ export default function Garantie() {
             Votre tranquillité d'esprit,<br /><span className="gradient-text">notre priorité.</span>
           </h1>
           <p className="text-g-muted max-w-xl mx-auto">
-            Chaque PC NEXUS BUILD est couvert par une garantie 3 ans complète.
+            Chaque PC NEXT BUILD est couvert par une garantie 3 ans complète.
             Notre SAV est là pour vous, 6 jours sur 7.
           </p>
         </div>
@@ -112,12 +112,12 @@ export default function Garantie() {
         <div className="card p-8 border-g-blue/30 bg-g-blue/5 space-y-5">
           <h3 className="font-bold text-xl text-g-text">Contacter le SAV</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <a href="mailto:support@nexusbuild.fr"
+            <a href="mailto:support@nextbuild.fr"
               className="flex items-center gap-3 p-4 rounded-xl border border-g-border bg-g-card hover:border-g-blue transition-all">
               <Mail size={20} className="text-g-blue-l" />
               <div>
                 <p className="font-medium text-g-text text-sm">Email</p>
-                <p className="text-g-muted text-xs">support@nexusbuild.fr</p>
+                <p className="text-g-muted text-xs">support@nextbuild.fr</p>
               </div>
             </a>
             <div className="flex items-center gap-3 p-4 rounded-xl border border-g-border bg-g-card">

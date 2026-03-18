@@ -24,7 +24,7 @@ const FAQS = [
     category: 'Garantie & SAV',
     items: [
       { q: 'Quelle est la durée de la garantie ?', a: 'Tous nos PC sont couverts par une garantie constructeur de 3 ans. En cas de panne, nous prenons en charge le diagnostic, la réparation ou le remplacement de la pièce défectueuse. Les frais de retour sont à notre charge.' },
-      { q: 'Que faire si mon PC tombe en panne ?', a: 'Contactez notre SAV par email à support@nexusbuild.fr ou par téléphone du lundi au samedi de 9h à 19h. Nous créons un ticket de support et vous guidons pour le diagnostic. Si nécessaire, un bon de retour gratuit vous est envoyé.' },
+      { q: 'Que faire si mon PC tombe en panne ?', a: 'Contactez notre SAV par email à support@nextbuild.fr ou par téléphone du lundi au samedi de 9h à 19h. Nous créons un ticket de support et vous guidons pour le diagnostic. Si nécessaire, un bon de retour gratuit vous est envoyé.' },
       { q: 'Puis-je modifier mon PC après achat ?', a: 'Oui, vous pouvez modifier votre PC (ajouter de la RAM, changer le stockage...) sans perdre la garantie sur les composants d\'origine. Toute modification doit nous être signalée pour maintenir la couverture garantie.' },
     ],
   },
@@ -113,7 +113,7 @@ export default function FAQ() {
         <div className="card p-8 text-center border-g-blue/30 bg-g-blue/5">
           <p className="font-bold text-g-text mb-2">Vous n'avez pas trouvé votre réponse ?</p>
           <p className="text-g-muted text-sm mb-5">Notre équipe est disponible du lundi au samedi de 9h à 19h.</p>
-          <a href="mailto:support@nexusbuild.fr" className="btn-primary text-sm px-5 py-2.5 inline-flex">
+          <a href="mailto:support@nextbuild.fr" className="btn-primary text-sm px-5 py-2.5 inline-flex">
             <MessageCircle size={15} /> Contacter le support
           </a>
         </div>

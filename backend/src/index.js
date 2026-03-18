@@ -28,4 +28,4 @@ app.use((err, _req, res, _next) => {
   res.status(500).json({ error: 'Erreur serveur interne' })
 })
 
-app.listen(PORT, () => console.log(`🚀 Backend NEXUS BUILD sur le port ${PORT}`))
+app.listen(PORT, () => console.log(`🚀 Backend NEXT BUILD sur le port ${PORT}`))
