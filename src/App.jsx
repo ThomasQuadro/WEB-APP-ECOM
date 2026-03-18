@@ -3,6 +3,7 @@ import Navbar        from './components/Navbar'
 import CartSidebar   from './components/CartSidebar'
 import Footer        from './components/Footer'
 import ProtectedRoute from './components/ProtectedRoute'
+import ChatWidget    from './components/ChatWidget'
 import Home           from './pages/Home'
 import Catalog        from './pages/Catalog'
 import ProductDetail  from './pages/ProductDetail'
@@ -49,6 +50,7 @@ export default function App() {
         </Routes>
       </main>
       {showFooter && <Footer />}
+      <ChatWidget />
     </div>
   )
 }
