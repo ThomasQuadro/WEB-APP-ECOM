@@ -26,7 +26,6 @@ services:
       JWT_SECRET: nexus-jwt-super-secret-change-in-production
       FRONTEND_URL: http://localhost:5173
       PORT: 3001
-      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
     depends_on:
       db:
         condition: service_healthy

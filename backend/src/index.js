@@ -5,7 +5,6 @@ import authRoutes    from './routes/auth.js'
 import productsRoutes from './routes/products.js'
 import ordersRoutes  from './routes/orders.js'
 import usersRoutes   from './routes/users.js'
-import chatRoutes    from './routes/chat.js'
 
 const app  = express()
 const PORT = process.env.PORT || 3001
@@ -21,7 +20,6 @@ app.use('/api/auth',     authRoutes)
 app.use('/api/products', productsRoutes)
 app.use('/api/orders',   ordersRoutes)
 app.use('/api/users',    usersRoutes)
-app.use('/api/chat',     chatRoutes)
 
 app.get('/api/health', (_req, res) => res.json({ status: 'ok' }))
 
