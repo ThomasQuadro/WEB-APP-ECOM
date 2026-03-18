@@ -1,10 +1,18 @@
 import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { X, ShoppingCart, Trash2, Plus, Minus, ArrowRight, PackageOpen } from 'lucide-react'
 import { useCart } from '../context/CartContext'
+import { useAuth } from '../context/AuthContext'
 
 export default function CartSidebar() {
   const { items, totalItems, totalPrice, isOpen, setIsOpen, removeItem, updateQty } = useCart()
+  const { user } = useAuth()
+  const navigate = useNavigate()
+
+  function handleCheckout() {
+    setIsOpen(false)
+    navigate(user ? '/checkout' : '/login')
+  }
 
   // Verrouille le scroll quand le panier est ouvert
   useEffect(() => {
@@ -101,6 +109,7 @@ export default function CartSidebar() {
                 Voir mon panier
               </Link>
               <button
+                onClick={handleCheckout}
                 className="w-full flex items-center justify-center gap-2 py-3 rounded-lg
                            bg-g-green/15 border border-g-green/30 text-g-green font-semibold
                            hover:bg-g-green/25 transition-all duration-150"
