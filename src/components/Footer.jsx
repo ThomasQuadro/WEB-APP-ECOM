@@ -12,15 +12,15 @@ const LINKS = {
   support: [
     { label: 'Mon compte',        to: '/dashboard' },
     { label: 'Mes commandes',     to: '/dashboard' },
-    { label: 'Garantie & SAV',    to: '/' },
-    { label: 'Guide d\'achat',    to: '/' },
-    { label: 'FAQ',               to: '/' },
+    { label: 'Garantie & SAV',    to: '/garantie' },
+    { label: "Guide d'achat",     to: '/guide' },
+    { label: 'FAQ',               to: '/faq' },
   ],
   legal: [
-    { label: 'Mentions légales',       to: '/' },
-    { label: 'CGV',                    to: '/' },
-    { label: 'Politique de confidentialité', to: '/' },
-    { label: 'Cookies',                to: '/' },
+    { label: 'Mentions légales',             to: '/mentions-legales' },
+    { label: 'CGV',                          to: '/cgv' },
+    { label: 'Politique de confidentialité', to: '/confidentialite' },
+    { label: 'Cookies',                      to: '/cookies' },
   ],
 }
 
